@@ -1,0 +1,26 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.form{
+    margin-top: 20%;
+    text-align: center;
+    font-family: cursive;
+}
+h1{
+    color: red;
+}
+button{
+    border-radius: 30px;
+    border-width: 0px;
+    padding: 7px 20px 7px 20px;
+    color: #000;
+    font-size: 18px;
+    margin: 5px;
+}
+.btn-true{
+    background-color: greenyellow;
+}
+.btn-false{
+    background-color: red;
+}

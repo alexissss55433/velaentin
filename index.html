@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>For You
+        <3</title>
+            <script>
+                // Функция для перенаправления пользователя
+                function redirectToAnotherPage() {
+                    window.location.href = "love.html"; // Замените на URL вашей другой страницы
+                }
+
+                // Функция для скрытия кнопки
+                function hideButton() {
+                    const btnFalse = document.querySelector('.btn-false');
+                    btnFalse.style.display = 'none'; // Скрываем кнопку
+                }
+            </script>
+</head>
+
+<body>
+    <div class="form">
+        <h1>Ти любиш меня?</h1>
+        <button class="btn-true" onclick="redirectToAnotherPage()">Да</button>
+        <button class="btn-false" onclick="hideButton()">Нет</button>
+    </div>
+</body>
+
+</html>
