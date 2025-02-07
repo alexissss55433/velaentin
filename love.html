@@ -4,284 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днем Святого Валентина</title>
-    <style>
-        /* Устанавливаем базовые стили для страницы */
-        
-        html {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f9f9f9;
-            overflow: hidden;
-            position: relative;
-            font-family: Arial, sans-serif;
-        }
-        /* Создаем анимацию для переливающегося фона */
-        
-        @keyframes gradientAnimation {
-            0% {
-                background: #fe6557;
-            }
-            25% {
-                background: #ff8370;
-            }
-            50% {
-                background: #fc6776;
-            }
-            75% {
-                background: #ff6f61;
-            }
-            100% {
-                background: #ff7d69;
-            }
-        }
-        
-        .heart-background {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #ff6f61, #ff9a8b, #f7d3f1);
-            animation: gradientAnimation 7s infinite alternate;
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: -1;
-        }
-        /* Стили для текста */
-        
-        .message h1 {
-            font-family: 'Arial', sans-serif;
-            color: white;
-            font-size: 3.4rem;
-            text-align: center;
-            z-index: 1;
-            margin: 0;
-        }
-        /* Новый текст, который появляется спустя 2 секунды */
-        
-        .new-message {
-            font-family: cursive;
-            color: white;
-            font-size: 2rem;
-            text-align: center;
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            opacity: 0;
-            animation: fadeIn 2s 2s forwards;
-        }
-        
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-        /* Стили для анимации сердечек */
-        
-        @keyframes heartAnimation {
-            0% {
-                transform: translateY(0) scale(2);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) scale(1.5);
-                opacity: 0;
-            }
-        }
-        
-        .heart {
-            position: absolute;
-            font-size: 3rem;
-            color: #ff6f61;
-            animation: heartAnimation 4s infinite;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 2;
-        }
-        /* Генерация множества сердечек с разными задержками */
-        
-        .heart:nth-child(1) {
-            left: 10%;
-            animation-delay: 0s;
-        }
-        
-        .heart:nth-child(2) {
-            left: 30%;
-            animation-delay: 1s;
-        }
-        
-        .heart:nth-child(3) {
-            left: 50%;
-            animation-delay: 2s;
-        }
-        
-        .heart:nth-child(4) {
-            left: 70%;
-            animation-delay: 1.5s;
-        }
-        
-        .heart:nth-child(5) {
-            left: 90%;
-            animation-delay: 2.5s;
-        }
-        
-        .heart:nth-child(6) {
-            left: 15%;
-            animation-delay: 1s;
-        }
-        
-        .heart:nth-child(7) {
-            left: 85%;
-            animation-delay: 2.2s;
-        }
-        
-        .heart:nth-child(8) {
-            left: 60%;
-            animation-delay: 0.5s;
-        }
-        
-        .heart:nth-child(9) {
-            left: 20%;
-            animation-delay: 2.7s;
-        }
-        
-        .heart:nth-child(10) {
-            left: 80%;
-            animation-delay: 1.8s;
-        }
-        /* Дополнительные сердечки */
-        
-        .heart:nth-child(11) {
-            left: 5%;
-            animation-delay: 3s;
-        }
-        
-        .heart:nth-child(12) {
-            left: 35%;
-            animation-delay: 0.2s;
-        }
-        
-        .heart:nth-child(13) {
-            left: 45%;
-            animation-delay: 1s;
-        }
-        
-        .heart:nth-child(14) {
-            left: 55%;
-            animation-delay: 0.5s;
-        }
-        
-        .heart:nth-child(15) {
-            left: 75%;
-            animation-delay: 2s;
-        }
-        
-        .heart:nth-child(16) {
-            left: 90%;
-            animation-delay: 2.7s;
-        }
-        
-        .heart:nth-child(17) {
-            left: 25%;
-            animation-delay: 3.5s;
-        }
-        
-        .heart:nth-child(18) {
-            left: 65%;
-            animation-delay: 1.5s;
-        }
-        
-        .heart:nth-child(19) {
-            left: 40%;
-            animation-delay: 2.8s;
-        }
-        
-        .heart:nth-child(20) {
-            left: 50%;
-            animation-delay: 1.3s;
-        }
-        /* Медиазапросы для мобильных устройств */
-        
-        @media (max-width: 600px) {
-            .message h1 {
-                font-size: 2.5rem;
-                /* Уменьшаем размер текста на мобильных устройствах */
-            }
-            .new-message {
-                font-size: 1.5rem;
-                /* Уменьшаем размер текста для нового сообщения */
-            }
-            .heart {
-                font-size: 2rem;
-                /* Уменьшаем размер сердечек */
-            }
-            .heart-background {
-                background: linear-gradient(45deg, #fe6557, #ff8370, #fc6776);
-                /* Сохраняем красивый фон */
-            }
-        }
-        
-        @media (max-width: 400px) {
-            .message h1 {
-                font-size: 2rem;
-                /* Еще больше уменьшаем размер текста для очень маленьких экранов */
-            }
-            .new-message {
-                font-size: 1.2rem;
-                /* Уменьшаем размер текста для нового сообщения */
-            }
-            .heart {
-                font-size: 1.8rem;
-                /* Уменьшаем сердечки для маленьких экранов */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style-love.css">
+    <title>Анимация Сердечек</title>
 </head>
 
-<body>
-    <div class="heart-background">
-        <div class="message">
-            <h1>С Днем Святого Валентина!</h1>
+<body onclick="createHeart_click(event)">
+    <div class="hearts"></div>
+    <!-- From Uiverse.io by ElSombrero2 -->
+    <!-- From Uiverse.io by gharsh11032000 -->
+    <!-- From Uiverse.io by gharsh11032000 -->
+    <div class="card">
+        <div class="card__icon">С Днём Святого Валентина</div> <!-- Заменили SVG на текст -->
+        <div class="card__content">
+            <p class="card__title">For You ❤️</p>
+            <p class="card__description">Элечка, Ты самая лучшая девушка, люблю тебя❤️
+            </p>
         </div>
     </div>
 
-    <!-- Летающие сердечки (больше сердец, чем в предыдущем примере) -->
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
 
-    <!-- Новый текст, который появится через 2 секунды -->
-    <div class="new-message">
-        <p>Котик, Ти самое лучшее что есть у меня в жизни, люблю тебя❤️</p>
-    </div>
+    <script>
+        const heartsContainer = document.querySelector('.hearts');
 
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heartsContainer.appendChild(heart);
+
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.animationDuration = `${Math.random() * 3 + 3}s`; // случайная длительность анимации
+
+            // Удаление сердца после завершения анимации
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        function createHeart_click(event) {
+            const heart = document.createElement('div');
+            heart.classList.add('click-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = `${event.clientX}px`;
+            heart.style.top = `${event.clientY}px`;
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 1500);
+        }
+        // Увеличим частоту появления сердечек
+        setInterval(createHeart, 100);  // Теперь сердечки появляются каждые 0.3 секунды
+    </script>
 </body>
 
 </html>
