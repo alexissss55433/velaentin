@@ -4,28 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>For You
-        <3</title>
-            <script>
-                // Функция для перенаправления пользователя
-                function redirectToAnotherPage() {
-                    window.location.href = "love.html"; // Замените на URL вашей другой страницы
-                }
+    <link rel="stylesheet" href="style-index.css">
+    <title>For You ❤️</title>
+    <script>
+        // Перенаправление на другую страницу
+        function redirectToAnotherPage() {
+            window.location.href = "love.html"; // Замените на URL вашей другой страницы
+        }
 
-                // Функция для скрытия кнопки
-                function hideButton() {
-                    const btnFalse = document.querySelector('.btn-false');
-                    btnFalse.style.display = 'none'; // Скрываем кнопку
-                }
-            </script>
+        // Скрытие кнопки "Нет"
+        function hideButton() {
+            window.location.href = "eror.html";
+        }
+    </script>
 </head>
 
 <body>
     <div class="form">
         <h1>Ти любиш меня?</h1>
-        <button class="btn-true" onclick="redirectToAnotherPage()">Да</button>
-        <button class="btn-false" onclick="hideButton()">Нет</button>
+        <!-- Кнопка "Да" -->
+        <div class="form-btn">
+            <button type="button" class="btn btn-true" onclick="redirectToAnotherPage()">
+                <strong>Да</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+
+            <!-- Кнопка "Нет" -->
+            <button type="button" class="btn btn-false" onclick="hideButton()">
+                <strong>Нет</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+        </div>
     </div>
 </body>
 
