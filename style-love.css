@@ -1,26 +1,193 @@
-body{
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.form{
-    margin-top: 20%;
+
+body,
+html {
+    user-select: none;
+    background: linear-gradient(45deg, #ff6f61, #ff9a8b, #f7d3f1);
+    animation: gradientAnimation 7s infinite alternate;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    position: relative;
     text-align: center;
     font-family: cursive;
+    display: flex;
+    /* Используем Flexbox */
+    justify-content: center;
+    /* Центрируем по горизонтали */
+    align-items: center;
+    /* Центрируем по вертикали */
+    flex-direction: column;
+    /* Располагаем кнопки вертикально */
 }
-h1{
-    color: red;
+
+.hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
-button{
-    border-radius: 30px;
-    border-width: 0px;
-    padding: 7px 20px 7px 20px;
-    color: #000;
-    font-size: 18px;
-    margin: 5px;
-}
-.btn-true{
-    background-color: greenyellow;
-}
-.btn-false{
+
+.heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
     background-color: red;
+    transform: rotate(90deg);
+    /* Переворачиваем сердце на 90 градусов */
+    animation: rise 5s infinite;
+    opacity: 0;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart:before {
+    left: 0;
+    top: -15px;
+}
+
+.heart:after {
+    top: 0;
+    left: 15px;
+}
+
+@keyframes rise {
+    0% {
+        bottom: -40px;
+        /* Начальная позиция снизу */
+        opacity: 1;
+        transform: rotate(-45deg) scale(1);
+    }
+
+    100% {
+        bottom: 100%;
+        /* Сердечко уходит вверх за пределы экрана */
+        opacity: 0;
+        transform: rotate(-45deg) scale(0.5);
+    }
+}
+
+/* From Uiverse.io by gharsh11032000 */
+/* From Uiverse.io by gharsh11032000 */
+.card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    box-shadow: 0px 0px 35px 1px #0000006b;
+}
+
+.card__icon {
+    font-size: 24px;
+    /* Размер текста */
+    font-weight: bold;
+    color: #333;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card:hover {
+    transform: rotate(-5deg) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card:hover .card__content {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 1;
+}
+
+.card__title {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    font-weight: 700;
+}
+
+.card__description {
+    margin: 20px 0 0;
+    font-size: 18px;
+    color: #777;
+    line-height: 1.4;
+}
+
+.card:hover .card__icon {
+    opacity: 0;
+    /* Прячем текст на hover */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background: #fe6557ad;
+    }
+
+    25% {
+        background: #ff8370ac;
+    }
+
+    50% {
+        background: #fc6776af;
+    }
+
+    75% {
+        background: #ff6e61af;
+    }
+
+    100% {
+        background: #ff7d69b1;
+    }
+}
+
+@keyframes clickHeart {
+    0% {
+        transform: scale(5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(7);
+        opacity: 0;
+    }
+}
+
+.click-heart {
+    position: absolute;
+    font-size: 3rem;
+    color: rgba(255, 105, 97, 0.6);
+    filter: blur(5px);
+    animation: clickHeart 1.5s forwards;
+    pointer-events: none;
 }
